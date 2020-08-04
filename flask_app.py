@@ -43,14 +43,14 @@ def index():
             reviews = []
             for commentbox in commentboxes:
                 try:
-                    # name.encode(encoding='utf-8')
+                   
                     name = commentbox.div.div.find_all('p', {'class': '_3LYOAd _3sxSiS'})[0].text
 
                 except:
                     name = 'No Name'
 
                 try:
-                    # rating.encode(encoding='utf-8')
+                   
                     rating = commentbox.div.div.div.div.text
 
 
@@ -58,14 +58,14 @@ def index():
                     rating = 'No Rating'
 
                 try:
-                    # commentHead.encode(encoding='utf-8')
+                   
                     commentHead = commentbox.div.div.div.p.text
 
                 except:
                     commentHead = 'No Comment Heading'
                 try:
                     comtag = commentbox.div.div.find_all('div', {'class': ''})
-                    # custComment.encode(encoding='utf-8')
+                    
                     custComment = comtag[0].div.text
                 except Exception as e:
                     print("Exception while creating dictionary: ", e)
@@ -77,13 +77,11 @@ def index():
         except Exception as e:
             print('The Exception message is: ', e)
             return 'something is wrong'
-    # return render_template('results.html')
-
+   
     else:
         return render_template('index.html')
 
 port = int(os.getenv("PORT"))
 if __name__ == "__main__":
-    #app.run(host='0.0.0.0', port=5000)
     app.run(host='0.0.0.0', port=port)
-    # app.run(host='127.0.0.1', port=8001, debug=True)
+    
